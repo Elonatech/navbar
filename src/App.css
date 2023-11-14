@@ -501,7 +501,7 @@
     margin: 0;
     display: grid;
     grid-gap: 5rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 4rem;
     position: relative;
     left: -10%;
@@ -540,7 +540,7 @@
     margin: 0;
     display: grid;
     grid-gap: 5rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 4rem;
     position: relative;
     left: -10%;
