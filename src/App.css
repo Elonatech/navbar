@@ -330,6 +330,10 @@
     font-size: 12px;
   }
 
+ .icon{
+  visibility: hidden;
+ }
+
   .innerListItemContentRightTechListActive, .innerListItemContentRightDigitalListActive, .innerListItemContentRightSalesListActive{
     margin: 0;
     padding: 0;
@@ -382,6 +386,7 @@
     text-align: center;
   }
 
+
   .networkAdministrationListActive{
     list-style: none;
     padding: 0;
@@ -419,6 +424,7 @@
     margin-top: 3rem;
   }
 
+
   .hardwareSolutionsListItem, .networkAdministrationListItem, .systemSecurityListListItem, .telecomsListListItem,
   .softwareSolutionsListListItem{
     display: flex;
@@ -443,7 +449,7 @@
 
 
   @media screen and (max-width:480px) {
-
+   
 
     .listItem:hover .innerListContainer{
       background-color: #fff;
@@ -471,6 +477,11 @@
       left: 0;
     }
 
+    .icon{
+      visibility: visible;
+      margin-left: 8rem;
+     }
+    
 
   .innerListItemLeft, .innerListItemRight{
     padding: 10px;
@@ -509,12 +520,12 @@
     margin: 2rem 0;
     font-size: 9px;
     text-align: center;
-  
+
   }
- 
 
 
-  
+
+
 
   .webSolutionsListActive, .digitalMarketingListActive, .graphicsListActive, .videoAnimationsListActive, .teleconferencingListActive{
     list-style: none;

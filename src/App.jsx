@@ -188,7 +188,8 @@ function App() {
                                     <li className='innerListContentRight'>
                                     <ul className={techMouseEnter ? 'innerListItemContentRightTechListActive' : 'innerListItemContentRightTechList'}>
                                         {/* hardward solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} onMouseLeave={handleHardwareMouseLeave}><h6 className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions</h6>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} ><h6 className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></h6>
                                                 <ul className={hardwareMouseOver ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
 
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/dotty/80/000000/computer.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Computers</li>
@@ -202,7 +203,7 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* network admin/eng */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver}> <h6 className={networkMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Network Admin/Eng</h6> 
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver}> <h6 className={networkMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6> 
                                                 <ul className={networkMouseOver ?'networkAdministrationListActive' : 'networkAdministrationList'}>
                                             
                                                     <li className={'networkAdministrationListItem'}> <img src="https://img.icons8.com/ios-filled/344/networking-manager.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Network Admin/Implementation </li>
