@@ -188,8 +188,8 @@ function App() {
                                     <li className='innerListContentRight'>
                                     <ul className={techMouseEnter ? 'innerListItemContentRightTechListActive' : 'innerListItemContentRightTechList'}>
                                         {/* hardward solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} ><h6 className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></h6>
+                                            <li className={'innerListItemContentRightTechListItem'}  > <div className="test"><h6 onMouseEnter={handleHardwareMouseOver} className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions </h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+                                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
                                                 <ul className={hardwareMouseOver ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
 
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/dotty/80/000000/computer.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Computers</li>
@@ -203,7 +203,8 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* network admin/eng */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver}> <h6 className={networkMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6> 
+                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleNetworkMouseOver} className={networkMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6>  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
                                                 <ul className={networkMouseOver ?'networkAdministrationListActive' : 'networkAdministrationList'}>
                                             
                                                     <li className={'networkAdministrationListItem'}> <img src="https://img.icons8.com/ios-filled/344/networking-manager.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Network Admin/Implementation </li>
@@ -222,7 +223,8 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* system security */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleSystemMouseOver}> <h6 className={systemMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>System Security</h6> 
+                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleSystemMouseOver} className={systemMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>System Security</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+                                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
                                                 <ul className={systemMouseOver ? 'systemSecurityListActive' : 'systemSecurityList'}>
                                                     <li className={'systemSecurityListListItem'}> <img src="https://img.icons8.com/wired/64/000000/behavior-blocker.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Access Control</li>
                                                     <li className={'systemSecurityListListItem'}> <img src="https://cdn-icons-png.flaticon.com/128/6997/6997891.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Time Management Solutions</li>
@@ -230,14 +232,16 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* telecoms */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleTelecomMouseOver}><h6 className={telecomMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Telecoms</h6>
+                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleTelecomMouseOver} className={telecomMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Telecoms</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+                                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
                                                 <ul className={telecomMouseOver ? 'telecomsListActive' : 'telecomsList'}>
                                                     <li className={'telecomsListListItem'}> <img src="https://cdn0.iconfinder.com/data/icons/computer-networking-1-1/66/97-512.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> IP Telephony & PBX Systems</li>
                                                     <li className={'telecomsListListItem'}> <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/voip-technology-2049624-1732701.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> VoIP</li>
                                                 </ul>
                                             </li>
                                         {/* software solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleSoftwareMouseOver}> <h6 className={softwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Software Solutions</h6> 
+                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleSoftwareMouseOver} className={softwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Software Solutions</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+                                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
                                                 <ul className={softwareMouseOver ? 'softwareSolutionsListActive' : 'softwareSolutionsList'}>
                                                     <li className={'softwareSolutionsListListItem'}> <img src="https://static.vecteezy.com/system/resources/previews/005/377/464/non_2x/upgrade-of-software-line-icon-computer-system-update-linear-pictogram-download-process-icon-progress-of-upgrade-illustration-vector.jpg" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> System Software</li>
                                                     <li className={"softwareSolutionsListListItem"}> <img src="https://cdn-icons-png.flaticon.com/128/10435/10435278.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/>  Application Software</li>

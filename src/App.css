@@ -449,7 +449,11 @@
 
 
   @media screen and (max-width:480px) {
-   
+   .test{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   }
 
     .listItem:hover .innerListContainer{
       background-color: #fff;
@@ -480,6 +484,9 @@
     .icon{
       visibility: visible;
       margin-left: 8rem;
+     }
+     .icon:hover{
+      color: red;
      }
     
 
