@@ -47,6 +47,15 @@ function App() {
         setSystemMouseOver(false)
         setTelecomMouseOver(false)
         setSoftwareMouseOver(false)
+        console.log('Mouse entered')
+      }
+      const handleHardwareMouseLeave = () => {
+        setHardwareMouseOver(false)
+        setNetworkMouseOver(false)
+        setSystemMouseOver(false)
+        setTelecomMouseOver(false)
+        setSoftwareMouseOver(false)
+        console.log('Mouse left on a small screen')
       }
       const handleNetworkMouseOver = () => {
         setNetworkMouseOver(true)
@@ -179,7 +188,7 @@ function App() {
                                     <li className='innerListContentRight'>
                                     <ul className={techMouseEnter ? 'innerListItemContentRightTechListActive' : 'innerListItemContentRightTechList'}>
                                         {/* hardward solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver}><h6 className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions</h6>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} onMouseLeave={handleHardwareMouseLeave}><h6 className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions</h6>
                                                 <ul className={hardwareMouseOver ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
 
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/dotty/80/000000/computer.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Computers</li>
