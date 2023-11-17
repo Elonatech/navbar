@@ -9,7 +9,11 @@ function App() {
     const [salesMouseEnter, setSalesMouseEnter] = useState(false)
 
     const [hardwareMouseOver, setHardwareMouseOver] = useState(true)
+    const [hardwareMouseClick, setHardwareMouseClick] = useState(false)
+
     const [networkMouseOver, setNetworkMouseOver] = useState(false)
+    const [networkMouseClick, setNetworkMouseClick] = useState(false)
+
     const [systemMouseOver, setSystemMouseOver] = useState(false)
     const [telecomMouseOver, setTelecomMouseOver] = useState(false)
     const [softwareMouseOver, setSoftwareMouseOver] = useState(false)
@@ -24,7 +28,81 @@ function App() {
     const [productsSlideNav2, setProductsSlideNav2] = useState(false)
     const [productsSlideNav3, setProductsSlideNav3] = useState(false)
     const [productsSlideNav4, setProductsSlideNav4] = useState(false)
+
+
+
+    // SAMPLE
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useEffect(() => {
+      const checkScreenSize = () => {
+        const screenWidth = window.innerWidth;
+        setIsSmallScreen(screenWidth < 768);
+      };
   
+      checkScreenSize();  // Initial check on component mount
+  
+      window.addEventListener('resize', checkScreenSize);  // Listen for window resize events
+  
+      // Cleanup the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', checkScreenSize);
+      };
+    }, []); // Empty dependency array means this effect runs once on mount
+    const handleHardwareMouseOver = () => {
+        if (!isSmallScreen) {
+          setHardwareMouseOver(true)
+          setHardwareMouseClick(false)
+          setNetworkMouseOver(false)
+          setSystemMouseOver(false)
+          setTelecomMouseOver(false)
+          setSoftwareMouseOver(false)
+            
+          console.log('Mouse entered on a large screen');
+          // Your onMouseEnter logic for large screens here
+        }
+        
+      };
+
+      const handleHardwareMouseClick = () => {
+        if (isSmallScreen) {
+           setHardwareMouseClick(!hardwareMouseClick)
+           setHardwareMouseOver(false)
+          console.log('Clicked on a small screen');
+          // Your onClick logic for small screens here
+        }
+      };
+
+      const handleNetworkMouseOver = () => {
+        if (!isSmallScreen) {
+          // setHardwareMouseClick(false)
+          setNetworkMouseClick()
+          setNetworkMouseOver(true)
+          setHardwareMouseOver(false)
+          setSystemMouseOver(false)
+          setTelecomMouseOver(false)
+          setSoftwareMouseOver(false)
+        }
+       
+      }
+    
+      const handleNetworkMouseClick = () => {
+        if (isSmallScreen) {
+          setNetworkMouseClick(true)
+           setNetworkMouseOver(true)
+           setHardwareMouseOver(false)
+           setSystemMouseOver(false)
+           setTelecomMouseOver(false)
+           setSoftwareMouseOver(false)
+          console.log('NETWORK');
+          // Your onClick logic for small screens here
+        }
+      };
+    
+  
+
+
+
 
     const handleTechMouseEnter = () => {
         setTechMouseEnter(true)
@@ -41,14 +119,14 @@ function App() {
         setTechMouseEnter(false)
         setDigitalMouseEnter(false)
       }
-      const handleHardwareMouseOver = () => {
-        setHardwareMouseOver(true)
-        setNetworkMouseOver(false)
-        setSystemMouseOver(false)
-        setTelecomMouseOver(false)
-        setSoftwareMouseOver(false)
-        console.log('Mouse entered')
-      }
+      // const handleHardwareMouseOver = () => {
+      //   setHardwareMouseOver(true)
+      //   setNetworkMouseOver(false)
+      //   setSystemMouseOver(false)
+      //   setTelecomMouseOver(false)
+      //   setSoftwareMouseOver(false)
+      //   console.log('Mouse entered')
+      // }
       const handleHardwareMouseLeave = () => {
         setHardwareMouseOver(false)
         setNetworkMouseOver(false)
@@ -57,13 +135,13 @@ function App() {
         setSoftwareMouseOver(false)
         console.log('Mouse left on a small screen')
       }
-      const handleNetworkMouseOver = () => {
-        setNetworkMouseOver(true)
-        setHardwareMouseOver(false)
-        setSystemMouseOver(false)
-        setTelecomMouseOver(false)
-        setSoftwareMouseOver(false)
-      }
+      // const handleNetworkMouseOver = () => {
+      //   setNetworkMouseOver(true)
+      //   setHardwareMouseOver(false)
+      //   setSystemMouseOver(false)
+      //   setTelecomMouseOver(false)
+      //   setSoftwareMouseOver(false)
+      // }
       const handleSystemMouseOver = () => {
         setSystemMouseOver(true)
         setNetworkMouseOver(false)
@@ -188,9 +266,8 @@ function App() {
                                     <li className='innerListContentRight'>
                                     <ul className={techMouseEnter ? 'innerListItemContentRightTechListActive' : 'innerListItemContentRightTechList'}>
                                         {/* hardward solution */}
-                                            <li className={'innerListItemContentRightTechListItem'}  > <div className="test"><h6 onMouseEnter={handleHardwareMouseOver} className={hardwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions </h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
-                                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
-                                                <ul className={hardwareMouseOver ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} > <div className="test"><h6 onClick={handleHardwareMouseClick}   className={hardwareMouseOver ||   hardwareMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions </h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                                <ul className={ hardwareMouseOver ||   hardwareMouseClick ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
 
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/dotty/80/000000/computer.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Computers</li>
                                                     
@@ -203,9 +280,8 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* network admin/eng */}
-                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleNetworkMouseOver} className={networkMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6>  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
-                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
-                                                <ul className={networkMouseOver ?'networkAdministrationListActive' : 'networkAdministrationList'}>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver} > <div className="test"><h6 onClick={handleNetworkMouseClick} className={networkMouseOver || networkMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                                <ul className={ networkMouseOver ||   networkMouseClick ? 'networkAdministrationListActive' : 'networkAdministrationList'}>
                                             
                                                     <li className={'networkAdministrationListItem'}> <img src="https://img.icons8.com/ios-filled/344/networking-manager.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Network Admin/Implementation </li>
                                             
@@ -240,7 +316,7 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* software solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleSoftwareMouseOver} className={softwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Software Solutions</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x icon" viewBox="0 0 16 16">
+                                            <li className={'innerListItemContentRightTechListItem'} > <div className="test"><h6 onMouseEnter={handleSoftwareMouseOver} className={softwareMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Software Solutions</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={handleHardwareMouseLeave} class="bi bi-x " viewBox="0 0 16 16">
                                                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></div>
                                                 <ul className={softwareMouseOver ? 'softwareSolutionsListActive' : 'softwareSolutionsList'}>
                                                     <li className={'softwareSolutionsListListItem'}> <img src="https://static.vecteezy.com/system/resources/previews/005/377/464/non_2x/upgrade-of-software-line-icon-computer-system-update-linear-pictogram-download-process-icon-progress-of-upgrade-illustration-vector.jpg" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> System Software</li>

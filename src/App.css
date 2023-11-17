@@ -384,6 +384,7 @@
     margin-top: 3rem;
     font-size: 9px;
     text-align: center;
+   
   }
 
 
@@ -454,6 +455,7 @@
     align-items: center;
     justify-content: space-between;
    }
+  
 
     .listItem:hover .innerListContainer{
       background-color: #fff;
