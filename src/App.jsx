@@ -16,11 +16,11 @@ function App() {
 
     const [systemMouseOver, setSystemMouseOver] = useState(false)
     const [systemMouseClick, setSystemMouseClick] = useState(false)
-   
+
 
     const [telecomMouseOver, setTelecomMouseOver] = useState(false)
     const [telecomMouseClick, setTelecomMouseClick] = useState(false)
-    
+
     const [softwareMouseOver, setSoftwareMouseOver] = useState(false)
     const [softwareMouseClick, setSoftwareMouseClick] = useState(false)
 
@@ -31,13 +31,20 @@ function App() {
     const [digitalMarketMouseClick, setDigitalMarketMouseClick] = useState(false)
 
     const [graphicsMouseOver, setGraphicsMouseOver] = useState(false)
+    const [graphicsMouseClick, setGraphicsMouseClick] = useState(false)
+
     const [videoMouseOver , setVideoMouseOver] = useState(false)
+    const [videoMouseClick , setVideoMouseClick] = useState(false)
+
     const [teleMouseOver, setTeleMouseOver] = useState(false)
+    const [teleMouseClick, setTeleMouseClick] = useState(false)
 
     const [productsSlideNav1, setProductsSlideNav1] = useState(false)
     const [productsSlideNav2, setProductsSlideNav2] = useState(false)
     const [productsSlideNav3, setProductsSlideNav3] = useState(false)
     const [productsSlideNav4, setProductsSlideNav4] = useState(false)
+
+    // const [ productClick, setProductClick] = useState{false}
 
 
 
@@ -49,11 +56,11 @@ function App() {
         const screenWidth = window.innerWidth;
         setIsSmallScreen(screenWidth < 768);
       };
-  
+
       checkScreenSize();  // Initial check on component mount
-  
+
       window.addEventListener('resize', checkScreenSize);  // Listen for window resize events
-  
+
       // Cleanup the event listener on component unmount
       return () => {
         window.removeEventListener('resize', checkScreenSize);
@@ -67,11 +74,11 @@ function App() {
           setSystemMouseOver(false)
           setTelecomMouseOver(false)
           setSoftwareMouseOver(false)
-            
+
           console.log('Mouse entered on a large screen');
           // Your onMouseEnter logic for large screens here
         }
-        
+
       };
 
       const handleHardwareMouseClick = () => {
@@ -96,9 +103,9 @@ function App() {
           setSoftwareMouseOver(false)
           console.log('NETWORK LARGER SCREEN');
         }
-       
+
       }
-    
+
       const handleNetworkMouseClick = () => {
         if (isSmallScreen) {
           setNetworkMouseClick(!networkMouseClick)
@@ -145,7 +152,7 @@ function App() {
         setHardwareMouseOver(false)
         setSoftwareMouseOver(false)
         }
-        
+
       }
 
       const handleTelecomMouseClick  = () =>{
@@ -167,7 +174,7 @@ function App() {
           setNetworkMouseOver(false)
           setHardwareMouseOver(false)
         }
-        
+
       }
       const handleSoftwareMouseClick = () => {
         if (isSmallScreen){
@@ -177,23 +184,24 @@ function App() {
           setNetworkMouseOver(false)
           setHardwareMouseOver(false)
         }
-        
+
       }
 
       // WEBMOUSE
       const handleWebMouseOver = () => {
         if (!isSmallScreen){
-          setWebMouseOver(!webMouseOver)
+          setWebMouseOver(true)
+          setWebMouseClick(false)
           setDigitalMarketMouseOver(false)
           setGraphicsMouseOver(false)
           setVideoMouseOver(false)
           setTeleMouseOver(false)
         }
-        
+
       }
       const handleWebMouseClick = () => {
         if (isSmallScreen){
-          // setWebMouseOver(!webMouseOver)
+          setWebMouseOver(false)
           setWebMouseClick(!webMouseClick)
           setDigitalMarketMouseOver(false)
           setGraphicsMouseOver(false)
@@ -201,12 +209,97 @@ function App() {
           setTeleMouseOver(false)
           console.log('got click web');
         }
-        
+
       }
 
       // DIGITAL SYSTEM
-    
-  
+      const handleDigitalMarketMouseOver = () => {
+        if (!isSmallScreen){
+          setDigitalMarketMouseOver(true)
+          setWebMouseOver(false)
+          setGraphicsMouseOver(false)
+          setVideoMouseOver(false)
+          setTeleMouseOver(false)
+        }
+
+      }
+      const handleDigitalMarketMouseClick = () => {
+        if (isSmallScreen){
+          setDigitalMarketMouseClick(!digitalMarketMouseClick)
+          setWebMouseOver(false)
+          setGraphicsMouseOver(false)
+          setVideoMouseOver(false)
+          setTeleMouseOver(false)
+          console.log(' click me');
+        }
+
+      }
+
+    // GRAPHICS
+      const handleGraphicsMouseOver = () => {
+      if  (!isSmallScreen){
+          setGraphicsMouseOver(true)
+          setDigitalMarketMouseOver(false)
+          setWebMouseOver(false)
+          setVideoMouseOver(false)
+          setTeleMouseOver(false)
+        }
+
+      }
+      const handleGraphicsMouseClick = () => {
+      if  (isSmallScreen){
+          setGraphicsMouseClick(!graphicsMouseClick)
+          setDigitalMarketMouseOver(false)
+          setWebMouseOver(false)
+          setVideoMouseOver(false)
+          setTeleMouseOver(false)
+        }
+
+      }
+
+      // VIDEO
+      const handleVideoMouseOver = () => {
+        if  (!isSmallScreen){
+          setVideoMouseOver(true)
+          setGraphicsMouseOver(false)
+          setDigitalMarketMouseOver(false)
+          setWebMouseOver(false)
+          setTeleMouseOver(false)
+        }
+      }
+      const handleVideoMouseClick = () => {
+        if  (isSmallScreen){
+          setVideoMouseClick(!videoMouseClick)
+          setGraphicsMouseOver(false)
+          setDigitalMarketMouseOver(false)
+          setWebMouseOver(false)
+          setTeleMouseOver(false)
+         
+        }
+      }
+
+      // TELECOM
+      const handleTeleMouseOver = () => {
+        if  (!isSmallScreen){
+          setTeleMouseOver(true)
+          setVideoMouseOver(false)
+          setGraphicsMouseOver(false)
+          setDigitalMarketMouseOver(false)
+          setWebMouseOver(false)
+        }
+      
+      }
+      const handleTeleMouseClick = () => {
+        if  (isSmallScreen){
+          setTeleMouseClick(!teleMouseClick)
+          setVideoMouseOver(false)
+          setGraphicsMouseOver(false)
+          setDigitalMarketMouseOver(false)
+          setWebMouseOver(false)
+          console.log(' click tele');
+        }
+      
+      }
 
 
 
@@ -215,7 +308,7 @@ function App() {
         setTechMouseEnter(true)
         setDigitalMouseEnter(false)
         setSalesMouseEnter(false)
-        
+
       }
       const handleDigitalMouseEnter = () => {
         setDigitalMouseEnter(true)
@@ -243,73 +336,6 @@ function App() {
         setSoftwareMouseOver(false)
         console.log('Mouse left on a small screen')
       }
-      // const handleNetworkMouseOver = () => {
-      //   setNetworkMouseOver(true)
-      //   setHardwareMouseOver(false)
-      //   setSystemMouseOver(false)
-      //   setTelecomMouseOver(false)
-      //   setSoftwareMouseOver(false)
-      // }
-      // const handleSystemMouseOver = () => {
-      //   setSystemMouseOver(true)
-      //   setNetworkMouseOver(false)
-      //   setHardwareMouseOver(false)
-      //   setTelecomMouseOver(false)
-      //   setSoftwareMouseOver(false)
-      // }
-      // const handleTelecomMouseOver = () => {
-      //   setTelecomMouseOver(true)
-      //   setSystemMouseOver(false)
-      //   setNetworkMouseOver(false)
-      //   setHardwareMouseOver(false)
-      //   setSoftwareMouseOver(false)
-      // }
-      // const handleSoftwareMouseOver = () => {
-      //   setSoftwareMouseOver(true)
-      //   setTelecomMouseOver(false)
-      //   setSystemMouseOver(false)
-      //   setNetworkMouseOver(false)
-      //   setHardwareMouseOver(false)
-      // }
-
-       // 
-  // const handleWebMouseOver = () => {
-  //   setWebMouseOver(true)
-  //   setDigitalMarketMouseOver(false)
-  //   setGraphicsMouseOver(false)
-  //   setVideoMouseOver(false)
-  //   setTeleMouseOver(false)
-  // }
-
-  const handleDigitalMarketMouseOver = () => {
-    setDigitalMarketMouseOver(true)
-    setWebMouseOver(false)
-    setGraphicsMouseOver(false)
-    setVideoMouseOver(false)
-    setTeleMouseOver(false)
-    
-  }
-  const handleGraphicsMouseOver = () => {
-    setGraphicsMouseOver(true)
-    setDigitalMarketMouseOver(false)
-    setWebMouseOver(false)
-    setVideoMouseOver(false)
-    setTeleMouseOver(false)
-  }
-  const handleVideoMouseOver = () => {
-    setVideoMouseOver(true)
-    setGraphicsMouseOver(false)
-    setDigitalMarketMouseOver(false)
-    setWebMouseOver(false)
-    setTeleMouseOver(false)
-  }
-  const handleTeleMouseOver = () => {
-    setTeleMouseOver(true)
-    setVideoMouseOver(false)
-    setGraphicsMouseOver(false)
-    setDigitalMarketMouseOver(false)
-    setWebMouseOver(false)
-  }
 
 
     // Products
@@ -337,7 +363,7 @@ function App() {
         setProductsSlideNav3(false)
         setProductsSlideNav2(false)
       }
-      
+
 
 
   return (
@@ -361,7 +387,7 @@ function App() {
                        </svg></a>
                    </li>
                    <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem"><a class="nav-link fw-bold" href="#">Solutions</a>
-                       <ul className='innerListContainer'> 
+                       <ul className='innerListContainer'>
                            <li className='innerListItemLeft'>
                                <ul className='innerListContentLeft'>
                                    <li className={techMouseEnter ? 'innerListItemContentLeftActive' : 'innerListItemContentLeft'} onMouseEnter={handleTechMouseEnter}>Tech Solutions</li>
@@ -380,21 +406,21 @@ function App() {
                                                 <ul className={ hardwareMouseOver ||   hardwareMouseClick ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
 
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/dotty/80/000000/computer.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Computers</li>
-                                                    
+
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-printer-stationery-and-office-wanicon-lineal-wanicon.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/>Printers </li>
-                                            
+
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/000000/external-mobile-phone-devices-icongeek26-outline-icongeek26.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/>Mobile Devices</li>
-                                                
+
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/ios/50/000000/outlet-switch.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Networking Equipments</li>
-                                            
+
                                                 </ul>
                                             </li>
                                         {/* network admin/eng */}
                                             <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver} > <div className="test"><h6 onClick={handleNetworkMouseClick} className={networkMouseOver || networkMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
                                                 <ul className={ networkMouseOver ||   networkMouseClick ? 'networkAdministrationListActive' : 'networkAdministrationList'}>
-                                            
+
                                                     <li className={'networkAdministrationListItem'}> <img src="https://img.icons8.com/ios-filled/344/networking-manager.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Network Admin/Implementation </li>
-                                            
+
                                                     <li className={'networkAdministrationListItem'}> <img src="https://cdn-icons-png.flaticon.com/128/9625/9625521.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Server Administration</li>
 
                                                     <li className={'networkAdministrationListItem'}> <img src="https://cdn-icons-png.flaticon.com/128/11498/11498221.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Infrastructure / System Integration </li>
@@ -431,7 +457,7 @@ function App() {
                                                     <li className={"softwareSolutionsListListItem"}> <img src="https://cdn-icons-png.flaticon.com/128/9518/9518692.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/>  Business Application Software</li>
                                                 </ul>
                                             </li>
-                                                                                                                        
+
                                         </ul>
                                     </li>
 
@@ -447,8 +473,8 @@ function App() {
                                                 </ul>
                                             </li>
                                             {/* digital marketing */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleDigitalMarketMouseOver}><h6  className={digitalMarketMouseOver ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Digital Marketing</h6>
-                                                <ul className={digitalMarketMouseOver  ? 'digitalMarketingListActive' : 'digitalMarketingList'}>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleDigitalMarketMouseOver}><h6  onClick={handleDigitalMarketMouseClick} className={digitalMarketMouseOver || digitalMarketMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Digital Marketing</h6>
+                                                <ul className={digitalMarketMouseOver || digitalMarketMouseClick ? 'digitalMarketingListActive' : 'digitalMarketingList'}>
                                                     <li className={'digitalMarketingListItem'}> <img src="https://cdn-icons-png.flaticon.com/512/1997/1997928.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/>    Social Media Marketing</li>
                                                     <li className={'digitalMarketingListItem'}> <img src="https://cdn-icons-png.flaticon.com/512/5599/5599556.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Email Marketing</li>
                                                     <li className={'digitalMarketingListItem'}> <img src="https://img.icons8.com/external-yogi-aprelliyanto-glyph-yogi-aprelliyanto/32/000000/external-seo-marketing-and-seo-yogi-aprelliyanto-glyph-yogi-aprelliyanto-2.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> SEO</li>
@@ -457,23 +483,23 @@ function App() {
                                                 </ul>
                                             </li>
                                             {/* graphic */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleGraphicsMouseOver}><h6 className={graphicsMouseOver? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Graphics</h6>
-                                                <ul className={graphicsMouseOver ? 'graphicsListActive' : 'graphicsList'}>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleGraphicsMouseOver}><h6 onClick={handleGraphicsMouseClick } className={graphicsMouseOver || graphicsMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Graphics</h6>
+                                                <ul className={graphicsMouseOver || graphicsMouseClick ? 'graphicsListActive' : 'graphicsList'}>
                                                     <li className='graphicsListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/1253/1253360.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Brand Development</li>
                                                     <li className='graphicsListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/6497/6497701.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> UI/UX & Prototyping</li>
                                                 </ul>
                                             </li>
                                             {/* video animation */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleVideoMouseOver}><h6 className={videoMouseOver? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Video Animations</h6>
-                                                <ul className={videoMouseOver ? 'videoAnimationsListActive' : 'videoAnimationsList'}>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleVideoMouseOver}><h6 onClick={handleVideoMouseClick} className={videoMouseOver || videoMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Video Animations</h6>
+                                                <ul className={videoMouseOver || videoMouseClick ? 'videoAnimationsListActive' : 'videoAnimationsList'}>
                                                     <li className='videoAnimationsListListItem'> <img src="https://img.icons8.com/dotty/80/000000/3d-select.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> 2D/3D Animations</li>
                                                     <li className='videoAnimationsListListItem'> <img src="https://cdn-icons-png.flaticon.com/128/1633/1633071.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Motion Graphics</li>
                                                     <li className='videoAnimationsListListItem'> <img src="https://img.icons8.com/ios-filled/50/000000/video-editing.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Video Editing</li>
                                                 </ul>
                                             </li>
                                              {/* teleconferencing */}
-                                            <li  className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleTeleMouseOver}><h6 className={teleMouseOver? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Teleconferencing</h6>
-                                                <ul className={teleMouseOver ? 'teleconferencingListActive' : 'teleconferencingList'}>
+                                            <li  className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleTeleMouseOver}><h6 onClick={handleTeleMouseClick} className={teleMouseOver || teleMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Teleconferencing</h6>
+                                                <ul className={teleMouseOver || teleMouseClick ? 'teleconferencingListActive' : 'teleconferencingList'}>
                                                     <li className='teleconferencingListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/2177/2177994.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center', marginBottom: '1rem'}}/> Livestreaming</li>
                                                     <li className='teleconferencingListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/3169/3169113.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center', marginBottom: '1rem'}}/>  Videoconferencing</li>
                                                 </ul>
@@ -535,10 +561,10 @@ function App() {
                             <li className={'mainDropdownLeftListItem'}>
                             Remote Support<span className={'displayArrow'}><i className="fa fa-arrow-right" aria-hidden="true" /></span>
                             </li>
-                            
+
                         </ul>
                         </div>
-                    </div>  
+                    </div>
                    </li>
 
                    {/* WHO WE ARE */}
@@ -568,7 +594,7 @@ function App() {
 
                    {/* GET IN TOUCH */}
                    <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem"><a class="nav-link fw-bold" href="#">Get In Touch</a>
-                    
+
                    </li>
                {/* <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
