@@ -405,7 +405,8 @@ function App() {
                        </svg></a>
                    </li>
                    <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" onMouseEnter={handleProductHover}><a onClick={handleProductClick } class="nav-link fw-bold" href="#">Solutions</a>
-                       <ul className={productHover || productClick ? 'innerListContainer' : 'mainDropdownDone'}>
+                   {/* {productHover || productClick ? 'innerListContainer' : 'mainDropdownDone'} */}
+                       <ul className= 'innerListContainer'  > 
                            <li className='innerListItemLeft'>
                                <ul className='innerListContentLeft'>
                                    <li className={techMouseEnter ? 'innerListItemContentLeftActive' : 'innerListItemContentLeft'} onMouseEnter={handleTechMouseEnter}>Tech Solutions</li>
