@@ -44,7 +44,9 @@ function App() {
     const [productsSlideNav3, setProductsSlideNav3] = useState(false)
     const [productsSlideNav4, setProductsSlideNav4] = useState(false)
 
-    // const [ productClick, setProductClick] = useState{false}
+    const [productHover, setProductHover] = useState(false)
+    const [productClick, setProductClick] = useState(false)
+   
 
 
 
@@ -302,6 +304,22 @@ function App() {
       }
 
 
+      const handleProductHover = () => {
+        if  (!isSmallScreen){
+          setProductHover(true)
+          console.log(' hover');
+        }
+      
+      }
+      const handleProductClick = () => {
+        if  (isSmallScreen){
+          setProductClick(!productClick)
+          setProductHover(false)
+          console.log(' click support');
+        }
+        
+      }
+
 
 
     const handleTechMouseEnter = () => {
@@ -339,30 +357,30 @@ function App() {
 
 
     // Products
-    const handleProducts1 = () => {
-        setProductsSlideNav1(true)
-        setProductsSlideNav2(false)
-        setProductsSlideNav3(false)
-        setProductsSlideNav4(false)
-      }
-      const handleProducts2 = () => {
-        setProductsSlideNav2(true)
-        setProductsSlideNav1(false)
-        setProductsSlideNav3(false)
-        setProductsSlideNav4(false)
-      }
-      const handleProducts3 = () => {
-        setProductsSlideNav3(true)
-        setProductsSlideNav1(false)
-        setProductsSlideNav2(false)
-        setProductsSlideNav4(false)
-      }
-      const handleProducts4 = () => {
-        setProductsSlideNav4(true)
-        setProductsSlideNav1(false)
-        setProductsSlideNav3(false)
-        setProductsSlideNav2(false)
-      }
+    // const handleProducts1 = () => {
+    //     setProductsSlideNav1(true)
+    //     setProductsSlideNav2(false)
+    //     setProductsSlideNav3(false)
+    //     setProductsSlideNav4(false)
+    //   }
+    //   const handleProducts2 = () => {
+    //     setProductsSlideNav2(true)
+    //     setProductsSlideNav1(false)
+    //     setProductsSlideNav3(false)
+    //     setProductsSlideNav4(false)
+    //   }
+    //   const handleProducts3 = () => {
+    //     setProductsSlideNav3(true)
+    //     setProductsSlideNav1(false)
+    //     setProductsSlideNav2(false)
+    //     setProductsSlideNav4(false)
+    //   }
+    //   const handleProducts4 = () => {
+    //     setProductsSlideNav4(true)
+    //     setProductsSlideNav1(false)
+    //     setProductsSlideNav3(false)
+    //     setProductsSlideNav2(false)
+    //   }
 
 
 
@@ -386,8 +404,8 @@ function App() {
                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
                        </svg></a>
                    </li>
-                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem"><a class="nav-link fw-bold" href="#">Solutions</a>
-                       <ul className='innerListContainer'>
+                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" onMouseEnter={handleProductHover}><a onClick={handleProductClick } class="nav-link fw-bold" href="#">Solutions</a>
+                       <ul className={productHover || productClick ? 'innerListContainer' : 'mainDropdownDone'}>
                            <li className='innerListItemLeft'>
                                <ul className='innerListContentLeft'>
                                    <li className={techMouseEnter ? 'innerListItemContentLeftActive' : 'innerListItemContentLeft'} onMouseEnter={handleTechMouseEnter}>Tech Solutions</li>
@@ -526,8 +544,8 @@ function App() {
 
 
                     {/* PRODUCT */}
-                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem"><a class="nav-link fw-bold" href="#">Product</a>
-                   <div className={productsSlideNav1 || productsSlideNav2 || productsSlideNav3 || productsSlideNav4 ? 'mainDropdownActive' : 'mainDropdown'}>
+                   {/* <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" ><a  onClick={handleProductClick } class="nav-link fw-bold" href="#">Product</a>
+                   <div className={productsSlideNav1 || productsSlideNav2 || productsSlideNav3 || productsSlideNav4 || productClick ? ' mainDropdownActive': 'mainDropdownDone'}>
                         <div className={'mainDropdownLeft'}>
                             <ul className={'mainDropdownLeftList'}>
                                 <li className={productsSlideNav1 ? 'mainDropdownLeftListItemActive' : 'mainDropdownLeftListItem'} onClick={handleProducts1}>
@@ -545,11 +563,33 @@ function App() {
                             </ul>
                         </div>
                     </div>
+                   </li> */}
+
+                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" onMouseEnter={handleProductHover}><a onClick={handleProductClick }  class="nav-link fw-bold" href="#">Product</a>
+                   <div className={ productHover || productClick ? ' mainDropdown': 'mainDropdownDone'}>
+                        <div className={'mainDropdownLeft'}>
+                        <ul className={'mainDropdownLeftList'}>
+                            <li className={'mainDropdownLeftListItem'}>
+                            Computers <span className={'displayArrow'}><i className="fa fa-arrow-right" aria-hidden="true" /></span>
+                            </li>
+                            <li className={'mainDropdownLeftListItem'}>
+                            Printers<span className={'displayArrow'}><i className="fa fa-arrow-right" aria-hidden="true" /></span>
+                            </li>
+                            <li className={'mainDropdownLeftListItem'}>
+                            Office Equipment<span className={'displayArrow'}><i className="fa fa-arrow-right" aria-hidden="true" /></span>
+                            </li>
+                            <li className={'mainDropdownLeftListItem'}>
+                            POS Systems<span className={'displayArrow'}><i className="fa fa-arrow-right" aria-hidden="true" /></span>
+                            </li>
+
+                        </ul>
+                        </div>
+                    </div>
                    </li>
 
                    {/* SUPPORT */}
-                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem"><a class="nav-link fw-bold" href="#">Support</a>
-                   <div className={'mainDropdown'}>
+                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" onMouseEnter={handleProductHover}><a  onClick={handleProductClick } class="nav-link fw-bold" href="#">Support</a>
+                   <div className={ productHover || productClick ? ' mainDropdown': 'mainDropdownDone'}>
                         <div className={'mainDropdownLeft'}>
                         <ul className={'mainDropdownLeftList'}>
                             <li className={'mainDropdownLeftListItem'}>
@@ -568,8 +608,8 @@ function App() {
                    </li>
 
                    {/* WHO WE ARE */}
-                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem"><a class="nav-link fw-bold" href="#">Who We Are </a>
-                   <div className={'mainDropdown'}>
+                   <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" onMouseEnter={handleProductHover}><a  onClick={handleProductClick } class="nav-link fw-bold" href="#">Who We Are </a>
+                   <div className={ productHover || productClick ? ' mainDropdown': 'mainDropdownDone'}>
                         <div className={'mainDropdownLeft'}>
                         <ul className={'mainDropdownLeftList'}>
                             <li className={'mainDropdownLeftListItem'}>
