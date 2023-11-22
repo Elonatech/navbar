@@ -1,5 +1,7 @@
 import './App.css';
 import { useState, useEffect } from "react";
+import { FiPlus } from "react-icons/fi";
+import { HiOutlineXMark } from "react-icons/hi2";
 // import { Link } from 'react-router-dom';
 
 function App() {
@@ -406,7 +408,7 @@ function App() {
                    </li>
                    <li class="nav-item mx-0 mx-md-4 my-2 my-md-0 listItem" onMouseEnter={handleProductHover}><a onClick={handleProductClick } class="nav-link fw-bold" href="#">Solutions</a>
                    {/* {productHover || productClick ? 'innerListContainer' : 'mainDropdownDone'} */}
-                       <ul className= 'innerListContainer'  > 
+                       <ul className= {productHover || productClick ? 'innerListContainer' : 'mainDropdownDone'}   > 
                            <li className='innerListItemLeft'>
                                <ul className='innerListContentLeft'>
                                    <li className={techMouseEnter ? 'innerListItemContentLeftActive' : 'innerListItemContentLeft'} onMouseEnter={handleTechMouseEnter}>Tech Solutions</li>
@@ -421,7 +423,7 @@ function App() {
                                     <li className='innerListContentRight'>
                                     <ul className={techMouseEnter ? 'innerListItemContentRightTechListActive' : 'innerListItemContentRightTechList'}>
                                         {/* hardward solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} > <div className="test"><h6 onClick={handleHardwareMouseClick}   className={hardwareMouseOver ||   hardwareMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions </h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleHardwareMouseOver} > <div className="test"><h6 onClick={handleHardwareMouseClick}   className={hardwareMouseOver ||   hardwareMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Hardware Solutions </h6> { hardwareMouseClick? <HiOutlineXMark /> :<FiPlus className='icon' />} </div>
                                                 <ul className={ hardwareMouseOver ||   hardwareMouseClick ? 'hardwareSolutionsListActive' : 'hardwareSolutionsList'}>
 
                                                     <li className={'hardwareSolutionsListItem'}> <img src="https://img.icons8.com/dotty/80/000000/computer.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Computers</li>
@@ -435,7 +437,7 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* network admin/eng */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver} > <div className="test"><h6 onClick={handleNetworkMouseClick} className={networkMouseOver || networkMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleNetworkMouseOver} > <div className="test"><h6 onClick={handleNetworkMouseClick} className={networkMouseOver || networkMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'} >Network Admin/Eng</h6> { networkMouseClick? <HiOutlineXMark  /> :<FiPlus className='icon'/>} </div>
                                                 <ul className={ networkMouseOver ||   networkMouseClick ? 'networkAdministrationListActive' : 'networkAdministrationList'}>
 
                                                     <li className={'networkAdministrationListItem'}> <img src="https://img.icons8.com/ios-filled/344/networking-manager.png" alt="" style={{alignSelf: "center", width: "50px", height: "50px", objectFit: "contain"}}/> Network Admin/Implementation </li>
@@ -454,7 +456,7 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* system security */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleSystemMouseOver} > <div className="test"><h6  onClick={handleSystemMouseClick} className={systemMouseOver || systemMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>System Security</h6> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleSystemMouseOver} > <div className="test"><h6  onClick={handleSystemMouseClick} className={systemMouseOver || systemMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>System Security</h6>  { systemMouseClick ? <HiOutlineXMark  /> :<FiPlus className='icon'/>} </div>
                                                 <ul className={systemMouseOver || systemMouseClick ? 'systemSecurityListActive' : 'systemSecurityList'}>
                                                     <li className={'systemSecurityListListItem'}> <img src="https://img.icons8.com/wired/64/000000/behavior-blocker.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Access Control</li>
                                                     <li className={'systemSecurityListListItem'}> <img src="https://cdn-icons-png.flaticon.com/128/6997/6997891.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> Time Management Solutions</li>
@@ -462,14 +464,14 @@ function App() {
                                                 </ul>
                                             </li>
                                         {/* telecoms */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleTelecomMouseOver}> <div className="test"><h6  onClick={handleTelecomMouseClick} className={telecomMouseOver || telecomMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Telecoms</h6><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleTelecomMouseOver}> <div className="test"><h6  onClick={handleTelecomMouseClick} className={telecomMouseOver || telecomMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Telecoms</h6>  { telecomMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon' />}</div>
                                                 <ul className={telecomMouseOver || telecomMouseClick ? 'telecomsListActive' : 'telecomsList'}>
                                                     <li className={'telecomsListListItem'}> <img src="https://cdn0.iconfinder.com/data/icons/computer-networking-1-1/66/97-512.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> IP Telephony & PBX Systems</li>
                                                     <li className={'telecomsListListItem'}> <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/voip-technology-2049624-1732701.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> VoIP</li>
                                                 </ul>
                                             </li>
                                         {/* software solution */}
-                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleSoftwareMouseOver}> <div className="test"><h6 onClick={handleSoftwareMouseClick}  className={softwareMouseOver || softwareMouseClick? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Software Solutions</h6><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus icon" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg> </div>
+                                            <li className={'innerListItemContentRightTechListItem'} onMouseEnter={handleSoftwareMouseOver}> <div className="test"><h6 onClick={handleSoftwareMouseClick}  className={softwareMouseOver || softwareMouseClick? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Software Solutions</h6>  { softwareMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon'/>} </div>
                                                 <ul className={softwareMouseOver || softwareMouseClick  ? 'softwareSolutionsListActive' : 'softwareSolutionsList'}>
                                                     <li className={'softwareSolutionsListListItem'}> <img src="https://static.vecteezy.com/system/resources/previews/005/377/464/non_2x/upgrade-of-software-line-icon-computer-system-update-linear-pictogram-download-process-icon-progress-of-upgrade-illustration-vector.jpg" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/> System Software</li>
                                                     <li className={"softwareSolutionsListListItem"}> <img src="https://cdn-icons-png.flaticon.com/128/10435/10435278.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: "center"}}/>  Application Software</li>
@@ -484,7 +486,7 @@ function App() {
                                     <li className='innerListContentRight'>
                                         <ul className={digitalMouseEnter ? 'innerListItemContentRightDigitalListActive' : 'innerListItemContentRightDigitalList'}>
                                             {/* web solution */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleWebMouseOver}><h6 onClick={handleWebMouseClick} className={webMouseOver || webMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Web Solutions</h6>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleWebMouseOver}> <div className="test">  <h6 onClick={handleWebMouseClick} className={webMouseOver || webMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Web Solutions </h6>  { webMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon'/>} </div>
                                                 <ul className={webMouseOver || webMouseClick? 'webSolutionsListActive' : 'webSolutionsList'}>
                                                     <li className='webSolutionsListItem'> <img src="https://img.icons8.com/ios/50/000000/developer-mode--v1.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/>    Web Design/Dev.</li>
                                                     <li className='webSolutionsListItem'> <img src="https://cdn-icons-png.flaticon.com/512/921/921515.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Domain Reg./DNS Mgt </li>
@@ -492,7 +494,7 @@ function App() {
                                                 </ul>
                                             </li>
                                             {/* digital marketing */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleDigitalMarketMouseOver}><h6  onClick={handleDigitalMarketMouseClick} className={digitalMarketMouseOver || digitalMarketMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Digital Marketing</h6>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleDigitalMarketMouseOver}> <div className="test"><h6  onClick={handleDigitalMarketMouseClick} className={digitalMarketMouseOver || digitalMarketMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Digital Marketing</h6>  { webMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon'/>}</div>
                                                 <ul className={digitalMarketMouseOver || digitalMarketMouseClick ? 'digitalMarketingListActive' : 'digitalMarketingList'}>
                                                     <li className={'digitalMarketingListItem'}> <img src="https://cdn-icons-png.flaticon.com/512/1997/1997928.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/>    Social Media Marketing</li>
                                                     <li className={'digitalMarketingListItem'}> <img src="https://cdn-icons-png.flaticon.com/512/5599/5599556.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Email Marketing</li>
@@ -502,14 +504,14 @@ function App() {
                                                 </ul>
                                             </li>
                                             {/* graphic */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleGraphicsMouseOver}><h6 onClick={handleGraphicsMouseClick } className={graphicsMouseOver || graphicsMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Graphics</h6>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleGraphicsMouseOver}> <div className="test"><h6 onClick={handleGraphicsMouseClick } className={graphicsMouseOver || graphicsMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Graphics</h6>  { graphicsMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon'/>}</div>
                                                 <ul className={graphicsMouseOver || graphicsMouseClick ? 'graphicsListActive' : 'graphicsList'}>
                                                     <li className='graphicsListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/1253/1253360.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Brand Development</li>
                                                     <li className='graphicsListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/6497/6497701.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> UI/UX & Prototyping</li>
                                                 </ul>
                                             </li>
                                             {/* video animation */}
-                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleVideoMouseOver}><h6 onClick={handleVideoMouseClick} className={videoMouseOver || videoMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Video Animations</h6>
+                                            <li className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleVideoMouseOver}> <div className="test"><h6 onClick={handleVideoMouseClick} className={videoMouseOver || videoMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Video Animations</h6>  {  videoMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon'/>}</div>
                                                 <ul className={videoMouseOver || videoMouseClick ? 'videoAnimationsListActive' : 'videoAnimationsList'}>
                                                     <li className='videoAnimationsListListItem'> <img src="https://img.icons8.com/dotty/80/000000/3d-select.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> 2D/3D Animations</li>
                                                     <li className='videoAnimationsListListItem'> <img src="https://cdn-icons-png.flaticon.com/128/1633/1633071.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center'}}/> Motion Graphics</li>
@@ -517,7 +519,7 @@ function App() {
                                                 </ul>
                                             </li>
                                              {/* teleconferencing */}
-                                            <li  className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleTeleMouseOver}><h6 onClick={handleTeleMouseClick} className={teleMouseOver || teleMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Teleconferencing</h6>
+                                            <li  className={'innerListItemContentRightDigitalListItem'} onMouseEnter={handleTeleMouseOver}> <div className="test"> <h6 onClick={handleTeleMouseClick} className={teleMouseOver || teleMouseClick ? 'innerListItemContentRightTechListTitleActive' : 'innerListItemContentRightTechListTitle'}>Teleconferencing</h6>  { teleMouseClick ? <HiOutlineXMark /> :<FiPlus className='icon'/>}</div>
                                                 <ul className={teleMouseOver || teleMouseClick ? 'teleconferencingListActive' : 'teleconferencingList'}>
                                                     <li className='teleconferencingListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/2177/2177994.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center', marginBottom: '1rem'}}/> Livestreaming</li>
                                                     <li className='teleconferencingListListItem'> <img src="https://cdn-icons-png.flaticon.com/512/3169/3169113.png" alt="" style={{width: "50px", height: "50px", objectFit: "contain", alignSelf: 'center', marginBottom: '1rem'}}/>  Videoconferencing</li>
